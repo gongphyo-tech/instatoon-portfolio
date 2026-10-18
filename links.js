@@ -1,0 +1,85 @@
+/*
+  ================================================================
+  ✏️ 링크 모음 — 링크를 바꾸고 싶으면 여기만 고치세요!
+  ================================================================
+  - 두 페이지(index.html, portfolio.html)의 버튼이 모두 여기 주소를 써요.
+  - 따옴표(" ") 안의 주소만 새 주소로 바꿔서 붙여넣고 저장하면 끝이에요.
+  - 따옴표, 쉼표(,)는 지우지 마세요.
+  - "portfolio.html"처럼 http로 시작하지 않는 주소는 이 홈페이지 안의 페이지예요.
+*/
+const 링크모음 = {
+  // 본 홈페이지 버튼
+  작가소개:     "portfolio.html",
+  최근프로젝트: "portfolio.html#도달률",
+  광고견적서:   "https://app.notion.com/p/greego_toon-26-8-1-39e349728d4580b281beff65cdde88ec?source=copy_link",
+  표준계약서:   "https://app.notion.com/p/2026-2-2fb349728d458099bca5ca45cd72f659?source=copy_link",
+  유의사항:     "https://sepia-typhoon-102.notion.site/1f9349728d45806ca2e9cb543baa8bf4?source=copy_link",
+  제작프로세스: "https://sepia-typhoon-102.notion.site/2a1349728d45805b98d8fce4f72bb856?source=copy_link",
+
+  // SNS
+  인스타그램:   "https://www.instagram.com/greego_toon",
+  스레드:       "https://www.threads.com/@greego_toon",
+
+  // 포트폴리오 페이지 — 최근 3개월 광고 프로젝트 (인스타그램 게시물 주소)
+  오브먼트:     "https://www.instagram.com/p/DayvJkyH0pA/",
+  림데이:       "https://www.instagram.com/p/DbmPfKYH1OB/",
+  한율:         "https://www.instagram.com/reel/DRtOVNtkXzz/",
+  아이엔젤:     "https://www.instagram.com/reel/DSNAS1NEdOK/",
+};
+
+/* 아래는 버튼에 주소를 연결해 주는 부분이에요 (고칠 필요 없어요) */
+document.querySelectorAll("[data-link]").forEach(function (버튼) {
+  const 주소 = 링크모음[버튼.dataset.link];
+  if (!주소) return;
+  버튼.href = 주소;
+  if (주소.startsWith("http")) {
+    버튼.target = "_blank";
+    버튼.rel = "noopener";
+  } else {
+    버튼.removeAttribute("target");
+  }
+});
+
+/* 📋 복사 버튼: data-copy="..." 가 붙은 버튼을 누르면 그 글자를 복사하고 "복사되었습니다"를 보여줘요 (고칠 필요 없어요) */
+(function () {
+  const 알림 = document.createElement("div");
+  알림.className = "복사알림";
+  알림.setAttribute("role", "status");
+  document.body.appendChild(알림);
+  let 타이머;
+
+  function 알림보이기(글자) {
+    알림.textContent = 글자;
+    알림.classList.add("보임");
+    clearTimeout(타이머);
+    타이머 = setTimeout(function () { 알림.classList.remove("보임"); }, 2000);
+  }
+
+  function 옛날방식복사(글자) {
+    const 칸 = document.createElement("textarea");
+    칸.value = 글자;
+    칸.setAttribute("readonly", "");
+    칸.style.position = "fixed";
+    칸.style.opacity = "0";
+    document.body.appendChild(칸);
+    칸.select();
+    let 성공 = false;
+    try { 성공 = document.execCommand("copy"); } catch (e) {}
+    칸.remove();
+    return 성공;
+  }
+
+  document.querySelectorAll("[data-copy]").forEach(function (버튼) {
+    버튼.addEventListener("click", function () {
+      const 글자 = 버튼.dataset.copy;
+      const 끝 = function (성공) {
+        알림보이기(성공 ? "✅ 복사되었습니다" : "메일 주소: " + 글자);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(글자).then(function () { 끝(true); }, function () { 끝(옛날방식복사(글자)); });
+      } else {
+        끝(옛날방식복사(글자));
+      }
+    });
+  });
+})();

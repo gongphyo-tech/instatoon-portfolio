@@ -1,0 +1,271 @@
+/* 두 페이지(index.html, portfolio.html)가 함께 쓰는 디자인 파일이에요 */
+
+  /* 🎨 색상 모음 — 색을 바꾸고 싶으면 여기 값만 바꾸세요 */
+  :root {
+    --배경: #FFF4F6;        /* 전체 바탕 연핑크 */
+    --배경2: #FFE6EC;       /* 구역 바탕 조금 더 진한 핑크 */
+    --카드: #FFFFFF;        /* 카드(하얀 상자) */
+    --포인트: #F07A9A;      /* 버튼, 강조 */
+    --포인트진함: #D9577C;  /* 버튼 위에 마우스 올렸을 때 */
+    --글자: #4A3A40;        /* 기본 글자 */
+    --흐린글자: #8C767E;    /* 설명 글자 */
+    --선: #F7CFDA;          /* 테두리 */
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--배경);
+    color: var(--글자);
+    font-family: "Gowun Dodum", -apple-system, "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+  h1, h2, h3, .로고 { font-family: "Jua", "Gowun Dodum", sans-serif; font-weight: 400; }
+  a { color: inherit; }
+
+  /* 상단 메뉴바 */
+  .메뉴바 {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255, 244, 246, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--선);
+  }
+  .메뉴바 .안쪽 {
+    max-width: 1080px; margin: 0 auto; padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .로고 { font-size: 22px; color: var(--포인트진함); text-decoration: none; white-space: nowrap; }
+  .메뉴 { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .메뉴 a {
+    text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 999px;
+    transition: background .2s;
+  }
+  .메뉴 a:hover { background: var(--배경2); }
+
+  /* 첫 화면 */
+  .첫화면 {
+    max-width: 1080px; margin: 0 auto; padding: 64px 16px 72px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center;
+  }
+  .첫화면 .작은글 { color: var(--포인트진함); font-size: 15px; margin: 0 0 8px; }
+  .첫화면 h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.2; margin: 0 0 16px; }
+  .첫화면 p.소개 { font-size: 18px; color: var(--흐린글자); margin: 0 0 28px; }
+
+  /* 그림 자리 (그림을 넣기 전까지 보이는 빈 상자) */
+  .그림자리 {
+    aspect-ratio: 1 / 1; width: 100%;
+    background: var(--배경2);
+    border: 2px dashed var(--선);
+    border-radius: 28px;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--흐린글자); font-size: 15px; padding: 16px;
+    overflow: hidden;
+  }
+  .그림자리 img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* 캐릭터 그림: 동그란 핑크 배경 위에 올라가요 */
+  .캐릭터 {
+    aspect-ratio: 1 / 1; width: 100%; max-width: 440px; margin: 0 auto;
+    background: radial-gradient(circle at 50% 55%, var(--카드) 0 58%, transparent 59%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .캐릭터 img { width: 92%; height: auto; mix-blend-mode: multiply; }
+  .대표그림 img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
+  .버튼들 { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* 버튼 */
+  .버튼 {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--포인트); color: #fff; text-decoration: none;
+    padding: 12px 22px; border-radius: 999px; font-size: 15px;
+    box-shadow: 0 4px 14px rgba(240, 122, 154, .3);
+    transition: background .2s, transform .2s;
+  }
+  .버튼:hover { background: var(--포인트진함); transform: translateY(-2px); }
+  .버튼.흰색 { background: var(--카드); color: var(--포인트진함); box-shadow: none; border: 1px solid var(--선); }
+  .버튼.흰색:hover { background: var(--배경2); }
+
+  /* 각 구역 */
+  section.구역 { padding: 72px 16px; }
+  section.구역:nth-of-type(even) { background: var(--배경2); }
+  .구역 .안쪽 { max-width: 1080px; margin: 0 auto; }
+  .번호 { color: var(--포인트); font-size: 14px; letter-spacing: .1em; margin: 0; }
+  .구역 h2 { font-size: clamp(26px, 4vw, 34px); margin: 4px 0 12px; }
+  .구역 .설명 { color: var(--흐린글자); max-width: 640px; margin: 0 0 32px; }
+
+  .두칸 { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; }
+  .두칸.그림오른쪽 { grid-template-columns: 1.3fr 1fr; }
+
+  .기준 { color: var(--흐린글자); font-size: 13px; margin: -20px 0 28px; }
+  .카드들 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .카드 {
+    background: var(--카드); border: 1px solid var(--선); border-radius: 20px; padding: 24px;
+  }
+  .카드 .큰숫자 { font-family: "Jua", sans-serif; font-size: 36px; color: var(--포인트진함); line-height: 1.2; }
+  .카드 .이름 { color: var(--흐린글자); font-size: 14px; }
+  .카드 h3 { margin: 0 0 6px; font-size: 20px; }
+  .카드 p { margin: 0; color: var(--흐린글자); font-size: 15px; }
+
+  .목록 { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 10px; }
+  .목록 li {
+    background: var(--카드); border: 1px solid var(--선); border-radius: 16px; padding: 14px 18px;
+  }
+  .목록 li::before { content: "♥"; color: var(--포인트); margin-right: 10px; }
+
+  /* 눌리는 카드 (견적서·계약서) */
+  .링크카드 { text-decoration: none; display: block; transition: transform .2s, border-color .2s; }
+  .링크카드:hover { transform: translateY(-3px); border-color: var(--포인트); }
+  .링크카드 .바로가기 { display: inline-block; margin-top: 14px; color: var(--포인트진함); font-size: 15px; }
+
+  /* 유의사항 · 광고 진행 과정 */
+  .제목줄 { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .캐릭터.작게 { width: 180px; flex-shrink: 0; margin: 0; }
+  .단계들 {
+    list-style: none; padding: 0; margin: 8px 0 40px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: none;
+  }
+  .단계 { background: var(--카드); border: 1px solid var(--선); border-radius: 20px; padding: 24px; position: relative; }
+  .단계:not(:last-child)::after {
+    content: "→"; position: absolute; right: -14px; top: 50%; transform: translateY(-50%);
+    color: var(--포인트); font-size: 18px; z-index: 1;
+  }
+  .단계번호 {
+    display: inline-block; background: var(--배경2); color: var(--포인트진함);
+    font-size: 12px; letter-spacing: .08em; padding: 2px 10px; border-radius: 999px;
+  }
+  .단계 h3 { margin: 10px 0 4px; font-size: 20px; }
+  .단계 p { margin: 0 0 6px; font-size: 15px; color: var(--흐린글자); }
+  .단계 p.가능 { color: var(--글자); }
+  .단계 p.주의 { color: var(--포인트진함); font-size: 14px; }
+  .단계 p.주의::before { content: "⚠️ "; }
+
+  .소제목 { font-size: 22px; margin: 0 0 12px; }
+  .비용표 { background: var(--카드); border: 1px solid var(--선); border-radius: 20px; overflow: hidden; margin-bottom: 24px; }
+  .비용줄 { display: flex; justify-content: space-between; gap: 16px; padding: 14px 20px; font-size: 15px; }
+  .비용줄 + .비용줄 { border-top: 1px solid var(--선); }
+  .비용줄 b { color: var(--포인트진함); font-weight: 400; font-family: "Jua", sans-serif; white-space: nowrap; }
+
+  .안내상자 {
+    background: var(--배경); border: 2px dashed var(--포인트); border-radius: 20px;
+    padding: 20px 24px; margin-bottom: 32px;
+  }
+  .안내상자 p { margin: 0; font-size: 15px; }
+  .안내상자 .한줄요약 { font-family: "Jua", sans-serif; font-size: 18px; margin-bottom: 8px; }
+  .안내상자 b { color: var(--포인트진함); font-weight: 400; }
+
+  /* 하단 연락처 */
+  footer {
+    text-align: center; padding: 64px 16px 48px;
+  }
+  footer h2 { font-size: 28px; margin: 0 0 8px; }
+  footer p { color: var(--흐린글자); margin: 0 0 24px; }
+  footer .연락처버튼들 { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  footer small { display: block; margin-top: 40px; color: var(--흐린글자); }
+
+  /* 📱 휴대폰 화면 */
+  @media (max-width: 760px) {
+    .메뉴바 .안쪽 { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .메뉴 { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; width: 100%; scrollbar-width: none; }
+    .메뉴::-webkit-scrollbar { display: none; }
+    .메뉴 a { white-space: nowrap; font-size: 13px; padding: 5px 10px; }
+    html { scroll-padding-top: 100px; }
+    .첫화면 { grid-template-columns: 1fr; padding-top: 40px; gap: 32px; }
+    .두칸, .두칸.그림오른쪽 { grid-template-columns: 1fr; gap: 24px; }
+    .두칸 .캐릭터 { max-width: 260px; }
+    section.구역 { padding: 56px 16px; }
+    .캐릭터.작게 { width: 110px; }
+    .단계들 { grid-template-columns: 1fr; gap: 24px; }
+    .단계:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -22px; transform: translateX(50%); }
+    .비용줄 { flex-direction: column; gap: 2px; }
+  }
+
+  /* ───────── 포트폴리오 상세 페이지 (portfolio.html) ───────── */
+  .상세머리 { max-width: 1080px; margin: 0 auto; padding: 32px 16px 56px; }
+  .배너 { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: 28px; display: block; margin-bottom: 28px; }
+  .날짜뱃지 {
+    display: inline-block; background: var(--배경2); color: var(--포인트진함);
+    font-size: 13px; padding: 4px 12px; border-radius: 999px;
+  }
+  .상세머리 h1 { font-size: clamp(30px, 5vw, 44px); margin: 8px 0 28px; line-height: 1.25; }
+  .확인상자 { margin-bottom: 0; }
+  .확인상자 .한줄요약 { margin-bottom: 16px; }
+  .카드들.두개 { margin-bottom: 0; }
+  .카드들.두개 .카드 { padding: 20px; }
+
+  .연락처목록 { display: grid; gap: 10px; margin: 0 0 24px; }
+  .연락처 {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    background: var(--카드); border: 1px solid var(--선); border-radius: 16px; padding: 14px 18px;
+    text-decoration: none; transition: border-color .2s;
+  }
+  .연락처:hover { border-color: var(--포인트); }
+  .연락처 span { color: var(--흐린글자); font-size: 15px; white-space: nowrap; }
+  .연락처 b { font-weight: 400; font-family: "Jua", sans-serif; font-size: 18px; color: var(--포인트진함); word-break: break-all; text-align: right; }
+  .가치 {
+    margin: 28px 0 0; padding: 4px 0 4px 18px; border-left: 4px solid var(--포인트);
+    font-family: "Jua", sans-serif; font-size: 19px; line-height: 1.5;
+  }
+
+  .사진들 { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .사진 {
+    display: block; text-decoration: none; background: var(--카드);
+    border: 1px solid var(--선); border-radius: 20px; overflow: hidden; transition: transform .2s;
+  }
+  .사진:hover { transform: translateY(-3px); }
+  .사진 img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; display: block; background: #0c0f14; }
+  .사진 span { display: block; padding: 10px 14px; font-size: 14px; }
+  .사진.통째 img { object-fit: contain; object-position: center; }
+  .사진안내 { margin: 0; }
+  #인사이트 .소제목 { margin-top: 8px; }
+
+  .구역 h2 small { font-size: 16px; color: var(--흐린글자); }
+  .프로젝트들 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .프로젝트 {
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    background: var(--카드); border: 1px solid var(--선); border-radius: 16px; padding: 16px 18px;
+    text-decoration: none; transition: transform .2s, border-color .2s;
+  }
+  .프로젝트:hover { transform: translateY(-2px); border-color: var(--포인트); }
+  .프로젝트 b { font-weight: 400; font-family: "Jua", sans-serif; font-size: 17px; }
+  .프로젝트 span { font-size: 12px; padding: 2px 10px; border-radius: 999px; background: var(--배경2); color: var(--포인트진함); white-space: nowrap; }
+  .프로젝트 span.릴스 { background: var(--포인트); color: #fff; }
+
+  @media (max-width: 760px) {
+    .배너 { aspect-ratio: 16 / 9; border-radius: 20px; }
+    .사진들 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .프로젝트들 { grid-template-columns: 1fr 1fr; }
+    .연락처 { flex-direction: column; align-items: flex-start; gap: 0; }
+    .연락처 b { text-align: left; }
+  }
+
+  /* 📋 복사 버튼과 "복사되었습니다" 알림 */
+  button.버튼, button.연락처 { font-family: inherit; border: 0; cursor: pointer; }
+  button.연락처 { width: 100%; color: inherit; border: 1px solid var(--선); text-align: left; }
+  .복사알림 {
+    position: fixed; left: 50%; bottom: 32px; z-index: 50;
+    transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+    background: var(--글자); color: #fff; padding: 12px 22px; border-radius: 999px;
+    font-size: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+    transition: opacity .25s, transform .25s; max-width: calc(100% - 32px); text-align: center;
+  }
+  .복사알림.보임 { opacity: 1; transform: translate(-50%, 0); }
+
+  /* 작가 및 작품설명 문구 */
+  .소개제목 {
+    font-family: "Jua", sans-serif; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.4;
+    color: var(--포인트진함); margin: 8px 0 12px;
+  }
+  .소개글 { font-size: 18px; margin: 0 0 8px; }
+  .소개글 b { font-weight: 400; font-family: "Jua", sans-serif; color: var(--포인트진함); }
+
+  /* 첫 화면 소개 문구 강조 */
+  .첫화면 p.소개 b { font-weight: 400; font-family: "Jua", sans-serif; color: var(--포인트진함); }
+
+  /* 첫 화면 제목: 항상 두 줄로 */
+  .첫화면 h1.두줄제목 { font-size: clamp(24px, 4.2vw, 46px); }
+  .두줄제목 span { display: block; white-space: nowrap; }
+  @media (max-width: 760px) {
+    .첫화면 h1.두줄제목 { font-size: min(9.6vw, 40px); }
+  }
