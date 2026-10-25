@@ -3,164 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>greego_toon 포트폴리오 상세</title>
-<!-- ✏️ 링크를 바꾸려면 links.js 파일을, 색을 바꾸려면 style.css 파일을 여세요 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<title>그리고툰 포트폴리오로 이동 중…</title>
+<!--
+  예전 상세 포트폴리오 주소예요. 이제 모든 내용이 메인 페이지 하나로 합쳐져서,
+  이 주소로 들어오면 새 메인 페이지의 같은 내용 위치로 자동 이동해요. (고칠 필요 없어요)
+-->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://gongphyo-tech.github.io/instatoon-portfolio/">
+<meta http-equiv="refresh" content="0; url=./#about">
+<script>
+  (function () {
+    var 연결 = { "소개": "about", "도달률": "stats", "인사이트": "insights", "프로젝트": "projects" };
+    var 해시 = decodeURIComponent(location.hash.slice(1));
+    location.replace("./#" + (연결[해시] || "about"));
+  })();
+</script>
+<style>body{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;background:#FFF4E9;color:#605550;display:grid;place-items:center;min-height:100vh;margin:0;text-align:center}a{color:#B9504C}</style>
 </head>
 <body>
-
-<!-- 상단 메뉴바 -->
-<header class="메뉴바">
-  <div class="안쪽">
-    <a class="로고" href="index.html">greego_toon</a>
-    <nav class="메뉴">
-      <a href="index.html">← 홈으로</a>
-      <a href="#소개">작가 소개</a>
-      <a href="#도달률">최근 도달률</a>
-      <a href="#인사이트">광고 인사이트</a>
-      <a href="#프로젝트">프로젝트</a>
-    </nav>
-  </div>
-</header>
-
-<!-- 배너 + 제목 -->
-<div class="상세머리">
-  <img class="배너" src="images/portfolio/banner-cafe.webp" alt="카페 테라스에서 빵을 먹으며 웃는 토끼 캐릭터">
-  <!-- ✏️ 기준 날짜 -->
-  <span class="날짜뱃지">2026. 8. 1. 기준</span>
-  <h1>greego_toon 포트폴리오</h1>
-
-  <div class="안내상자 확인상자">
-    <p class="한줄요약">📌 협업 제안 전 아래 링크를 꼭 확인해 주세요!</p>
-    <div class="카드들 두개">
-      <a class="카드 링크카드" data-link="제작프로세스">
-        <h3>🛠️ 광고 제작 프로세스 안내</h3>
-        <p>제작 단계와 수정 범위를 안내해요.</p>
-        <span class="바로가기">자세히 보기 →</span>
-      </a>
-      <a class="카드 링크카드" data-link="유의사항">
-        <h3>⚠️ 반드시 읽어주세요</h3>
-        <p>그리고툰은 인스타그램에서 운영하는 인스타툰이라, 인스타그램 정책·커뮤니티 가이드라인을 꼭 지켜야 해요.</p>
-        <span class="바로가기">자세히 보기 →</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- 🎞️ 흐르는 브랜드 띠: 브랜드를 더하거나 빼려면 <li> 줄을 추가·삭제하세요 -->
-<div class="브랜드띠" aria-label="함께한 브랜드">
-  <p class="브랜드띠제목">함께한 브랜드</p>
-  <ul class="브랜드목록">
-    <li>훤우</li>
-    <li>오브먼트</li>
-    <li>림데이</li>
-    <li>리드볼트</li>
-    <li>이지듀</li>
-    <li>한율</li>
-    <li>아이엔젤</li>
-  </ul>
-</div>
-
-<!-- 1. 작가 소개 -->
-<section class="구역" id="소개">
-  <div class="안쪽 두칸">
-    <div class="캐릭터"><img src="images/thumbs-up.png" alt="엄지를 치켜든 토끼 캐릭터"></div>
-    <div>
-      <p class="번호">01</p>
-      <h2>안녕하세요, 작가 “그리고”입니다</h2>
-      <p class="설명">견적 및 협업 제안은 문자 혹은 메일로 부탁드려요.</p>
-      <!-- ✏️ 연락처 -->
-      <div class="연락처목록">
-        <a class="연락처" href="sms:010-8682-1771"><span>💬 문자</span><b>010-8682-1771</b></a>
-        <button type="button" class="연락처 복사버튼" data-copy="greego_toon@naver.com"><span>💌 메일 (눌러서 복사)</span><b>greego_toon@naver.com</b></button>
-      </div>
-      <div class="버튼들">
-        <a class="버튼" data-link="인스타그램">인스타그램 (그리고툰)</a>
-        <a class="버튼 흰색" data-link="스레드">스레드</a>
-      </div>
-      <blockquote class="가치">협업사가 잘되는 것이야말로<br>그리고툰이 가장 추구하는 가치입니다.</blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- 2. 최근 도달률 -->
-<section class="구역" id="도달률">
-  <div class="안쪽">
-    <p class="번호">02</p>
-    <h2>최근 도달률</h2>
-    <p class="설명">최대 조회수를 기록한 30일(7월 25일 ~ 8월 23일)의 인스타그램 인사이트예요.</p>
-    <!-- ✏️ 숫자 카드 -->
-    <div class="카드들">
-      <div class="카드"><div class="큰숫자">1.29억</div><div class="이름">30일 조회수</div></div>
-      <div class="카드"><div class="큰숫자">456만</div><div class="이름">30일 시청자</div></div>
-      <div class="카드"><div class="큰숫자">+2.96만</div><div class="이름">30일 순 팔로워</div></div>
-      <div class="카드"><div class="큰숫자">94.3%</div><div class="이름">여성 독자</div></div>
-      <div class="카드"><div class="큰숫자">79.3%</div><div class="이름">25~44세 독자</div></div>
-    </div>
-    <div class="사진들">
-      <a class="사진" href="images/portfolio/maxview-1.jpg" target="_blank"><img src="images/portfolio/maxview-1.jpg" alt="30일 인사이트: 조회 129,131,722회" loading="lazy"><span>30일 조회 1억 2,913만</span></a>
-      <a class="사진 통째" href="images/portfolio/maxview-2.jpg" target="_blank"><img src="images/portfolio/maxview-2.jpg" alt="성별: 여성 94.3%, 남성 5.6%" loading="lazy"><span>성별 · 여성 94.3%</span></a>
-      <a class="사진 통째" href="images/portfolio/maxview-3.jpg" target="_blank"><img src="images/portfolio/maxview-3.jpg" alt="연령: 25-34세 48.1%, 35-44세 31.2%" loading="lazy"><span>연령 · 25~34세 48.1%</span></a>
-    </div>
-    <p class="기준 사진안내">사진을 누르면 크게 볼 수 있어요.</p>
-  </div>
-</section>
-
-<!-- 3. 최근 광고 인사이트 -->
-<section class="구역" id="인사이트">
-  <div class="안쪽">
-    <p class="번호">03</p>
-    <h2>최근 광고 인사이트</h2>
-    <p class="설명">광고 게시물 한 편이 평균 100만 회 이상 조회돼요.</p>
-
-    <h3 class="소제목">게시물툰</h3>
-    <div class="사진들">
-      <a class="사진" href="images/portfolio/insight-post-1.jpg" target="_blank"><img src="images/portfolio/insight-post-1.jpg" alt="리드볼트 광고 인사이트" loading="lazy"><span>리드볼트 · 147만 회</span></a>
-      <a class="사진" href="images/portfolio/insight-post-2.jpg" target="_blank"><img src="images/portfolio/insight-post-2.jpg" alt="훤우 광고 인사이트" loading="lazy"><span>훤우 · 124만 회</span></a>
-      <a class="사진" href="images/portfolio/insight-post-3.jpg" target="_blank"><img src="images/portfolio/insight-post-3.jpg" alt="이지듀 광고 인사이트" loading="lazy"><span>이지듀 · 161만 회</span></a>
-      <a class="사진" href="images/portfolio/insight-post-4.jpg" target="_blank"><img src="images/portfolio/insight-post-4.jpg" alt="광고 게시물 인사이트" loading="lazy"><span>광고 게시물 · 141만 회</span></a>
-      <a class="사진" href="images/portfolio/insight-post-5.jpg" target="_blank"><img src="images/portfolio/insight-post-5.jpg" alt="광고 게시물 인사이트" loading="lazy"><span>광고 게시물 · 101만 회</span></a>
-    </div>
-
-    <h3 class="소제목">릴스툰</h3>
-    <div class="사진들">
-      <a class="사진" href="images/portfolio/insight-reels-1.jpg" target="_blank"><img src="images/portfolio/insight-reels-1.jpg" alt="릴스툰 광고 인사이트" loading="lazy"><span>릴스툰 · 71만 회</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- 4. 프로젝트 -->
-<section class="구역" id="프로젝트">
-  <div class="안쪽">
-    <p class="번호">04</p>
-    <h2>Projects <small>(최근 3개월)</small></h2>
-    <p class="설명">카드를 누르면 실제 광고 게시물을 인스타그램에서 볼 수 있어요.</p>
-    <!-- ✏️ 프로젝트: 주소는 links.js에서 바꾸세요 -->
-    <div class="프로젝트들">
-      <a class="프로젝트" data-link="오브먼트"><b>오브먼트</b><span>게시물툰</span></a>
-      <a class="프로젝트" data-link="림데이"><b>림데이</b><span>게시물툰</span></a>
-      <a class="프로젝트" data-link="한율"><b>한율 쑥떡팩폼</b><span class="릴스">릴스툰</span></a>
-      <a class="프로젝트" data-link="아이엔젤"><b>아이엔젤</b><span class="릴스">릴스툰</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- 하단 연락처 -->
-<footer>
-  <h2>협업 문의</h2>
-  <p>견적과 협업 제안은 문자 또는 메일로 편하게 연락 주세요 💌</p>
-  <div class="연락처버튼들">
-    <button type="button" class="버튼 복사버튼" data-copy="greego_toon@naver.com">📋 이메일 복사하기 · greego_toon@naver.com</button>
-    <a class="버튼 흰색" href="sms:010-8682-1771">문자 보내기</a>
-    <a class="버튼 흰색" href="index.html">← 홈으로</a>
-  </div>
-  <small>© greego_toon. All rights reserved.</small>
-</footer>
-
-<script src="links.js"></script>
-<script src="motion.js"></script>
+  <p>그리고툰 포트폴리오가 한 페이지로 새로워졌어요.<br><a href="./">새 포트폴리오로 이동하기</a></p>
 </body>
 </html>
