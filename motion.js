@@ -15,7 +15,7 @@
   const 예전주소 = {
     "작가소개": "about", "소개": "about",
     "최근프로젝트": "stats", "도달률": "stats",
-    "인사이트": "insights", "프로젝트": "insights",
+    "인사이트": "insights", "프로젝트": "projects",
     "견적서계약서": "pricing", "유의사항": "process",
   };
   function 예전주소확인() {
