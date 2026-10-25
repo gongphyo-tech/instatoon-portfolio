@@ -367,7 +367,7 @@ small { font-size: .82em; }
   .hero-facts span { font-size: 12px; }
   .btn-row .btn { flex: 1 1 100%; }
   .btn-row.center .btn { flex: 1 1 100%; }
-  .strengths, .audience-grid, .insight-grid, .info-grid, .steps, .quote-extra, .doc-cards { grid-template-columns: 1fr; }
+  .strengths, .audience-grid, .info-grid, .steps, .quote-extra, .doc-cards { grid-template-columns: 1fr; }
   /* 협업 프로젝트: 휴대폰에서는 옆으로 밀어 보는 한 줄 */
   .project-grid {
     display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -378,6 +378,18 @@ small { font-size: .82em; }
   .project { flex: 0 0 62%; scroll-snap-align: start; }
   .swipe-hint { display: block; }
   .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  /* 광고 인사이트: 휴대폰에서 두 개씩 */
+  .insight-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .insight-body { padding: 12px 11px 14px; }
+  .insight-brand { font-size: 14px; line-height: 1.35; }
+  .insight .type { display: table; margin: 4px 0 0; font-size: 10.5px; padding: 1px 7px; }
+  .insight-title { font-size: 12px; margin: 6px 0 10px; min-height: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .metrics { grid-template-columns: 1fr; gap: 4px; }
+  .metrics div { padding: 5px 9px; border-radius: 10px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+  .metrics dt { font-size: 11px; white-space: nowrap; }
+  .metrics dd { font-size: 13px; white-space: nowrap; }
+  .insight .basis { font-size: 10.5px; line-height: 1.45; margin-top: 6px; }
+  .rank { width: 26px; height: 26px; font-size: 14px; top: 8px; left: 8px; }
   .stat { padding: 16px; }
   .period, .chart, .stat.big, .gender, .compare { padding: 22px 18px; }
   .pitch { font-size: 16px; padding: 16px 18px; }
