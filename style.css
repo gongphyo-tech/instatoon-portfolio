@@ -283,7 +283,7 @@ small { font-size: .82em; }
 .callout b { color: var(--coral-text); }
 
 /* ── 08 문의 ── */
-.contact { background: var(--white); text-align: center; }
+.contact { background: var(--cream); text-align: center; }
 .contact-inner { max-width: 760px; }
 .contact-char { width: 220px; margin: 0 auto 20px; mix-blend-mode: multiply; }
 .contact h2 { font-size: clamp(28px, 3.6vw, 40px); font-weight: 800; }
@@ -292,7 +292,7 @@ small { font-size: .82em; }
 .contact-lines b { color: var(--brown); margin-left: 4px; }
 
 /* ── 하단 · 위로 가기 · 알림 ── */
-.site-footer { background: var(--cream); padding: 26px 0; font-size: 14px; color: var(--muted); }
+.site-footer { background: var(--white); border-top: 1px solid var(--line); padding: 26px 0; font-size: 14px; color: var(--muted); }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .footer-inner p { margin: 0; }
 .footer-inner a { text-decoration: none; font-weight: 600; }
