@@ -76,8 +76,9 @@
       필터들.forEach(function (b) { b.setAttribute("aria-pressed", String(b === 버튼)); });
       document.querySelectorAll(".project").forEach(function (카드) {
         카드.hidden = !(종류 === "all" || 카드.dataset.type === 종류);
-        if (!카드.hidden) 카드.classList.add("in");
       });
+      const 줄 = document.querySelector(".project-grid");
+      if (줄) 줄.scrollLeft = 0;
     });
   });
 
@@ -108,8 +109,10 @@
     ".card", ".gallery-item", ".sub-title", ".pitch", ".filters", ".quote-app", ".callout",
     ".section .btn-row", ".contact-char", ".contact-lines",
   ].join(",");
-  const 요소들 = Array.from(document.querySelectorAll(대상)).filter(function (el) {
-    return !el.closest(".quote-app .card") || el.matches(".quote-app"); // 견적표 안쪽 카드는 견적표와 함께 나타나요
+  const 요소들 = Array.from(document.querySelectorAll(대상 + ", .project-grid")).filter(function (el) {
+    if (el.closest(".quote-app .card") && !el.matches(".quote-app")) return false; // 견적표 안쪽 카드는 견적표와 함께 나타나요
+    if (el.matches(".project")) return false; // 프로젝트 카드는 묶음 전체가 한 번에 나타나요 (휴대폰에서 옆으로 밀어도 보이도록)
+    return true;
   });
   요소들.forEach(function (요소) {
     const 형제 = Array.from(요소.parentElement.children).filter(function (x) { return 요소들.includes(x); });

@@ -213,6 +213,7 @@ small { font-size: .82em; }
 .project-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
 .project { display: flex; flex-direction: column; overflow: hidden; }
 .project[hidden] { display: none; }
+.swipe-hint { display: none; margin: -8px 0 12px; font-size: 13px; font-weight: 600; color: var(--muted); text-align: right; }
 .project-thumb { aspect-ratio: 4 / 5; background: #F4EEE9; display: grid; place-items: center; overflow: hidden; }
 .project-thumb.reels { background: #1E1817; }
 .project-thumb img { width: 100%; height: 100%; object-fit: contain; }
@@ -367,7 +368,15 @@ small { font-size: .82em; }
   .btn-row .btn { flex: 1 1 100%; }
   .btn-row.center .btn { flex: 1 1 100%; }
   .strengths, .audience-grid, .insight-grid, .info-grid, .steps, .quote-extra, .doc-cards { grid-template-columns: 1fr; }
-  .project-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  /* 협업 프로젝트: 휴대폰에서는 옆으로 밀어 보는 한 줄 */
+  .project-grid {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    margin: 0 -16px; padding: 4px 16px 14px; scroll-padding-left: 16px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .project-grid::-webkit-scrollbar { display: none; }
+  .project { flex: 0 0 62%; scroll-snap-align: start; }
+  .swipe-hint { display: block; }
   .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .stat { padding: 16px; }
   .period, .chart, .stat.big, .gender, .compare { padding: 22px 18px; }
